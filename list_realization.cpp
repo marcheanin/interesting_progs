@@ -1,5 +1,6 @@
 #include <iostream>
 #include <set>
+#include <locale.h>
 
 using namespace std;
 
@@ -183,4 +184,5 @@ bool compare_sets(List a, List b){              // сравнение множеств элементов 
 }
 
 int main() {
+    setlocale(LC_ALL, "Rus");
 }
