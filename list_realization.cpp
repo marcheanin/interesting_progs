@@ -165,7 +165,7 @@ struct List {
     }
 };
 
-bool compare_sets(List a, List b){              // сравнение множеств элементов двух списков
+bool compare_lists(List a, List b){              // сравнение множеств элементов двух списков
     set <int> res1;
     Node* p = a.first;
     while(p){
@@ -184,5 +184,38 @@ bool compare_sets(List a, List b){              // сравнение множеств элементов 
 }
 
 int main() {
-    setlocale(LC_ALL, "Rus");
+    List a;
+    int s[] = {1, 2, 3, 3, 5, -1, 6, 6, 17};
+    for (int i = 0; i < 9; i++){
+        a.push_back(s[i]);
+    }
+    a.push_front(8);
+    a.print();
+    //a.delete_all();
+    //a.print();
+    a.remove_first();
+    a.print();
+    cout << a.find(3) << " " << a.find(20) << endl;
+    cout << a.count_positive() << endl;
+    cout << a.is_empty() << endl;
+    cout << a.find_max() << " " << a.find_min() << endl;
+    a.remove(3);
+    a.print();
+    a.remove_all(6);
+    a.print();
+    a.replace_val(-1, 7);
+    a.print();
+    a.delete_all();
+    for (int i = 0; i < 9; i++){
+        a.push_back(s[i]);
+    }
+    a.print();
+    cout << a.count_uniq() << endl;
+    List b;
+    for (int i = 0; i < 9; i++){
+        b.push_back(s[i]);
+    }
+    cout << compare_lists(a, b) << endl;
+    b.remove_last();
+    cout << compare_lists(a, b) << endl;
 }
